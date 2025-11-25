@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"log"
 )
 
 func main() {
@@ -20,6 +21,8 @@ func main() {
 		readNumberOfWords(*numberOfWords)
 	case *numberOfCharacters != "":
 		readNumberOfCharacters(*numberOfCharacters)
+	default:
+		log.Println("Usage: wc [-c | -l | -w | -m] <file>")
 	}
 
 }
