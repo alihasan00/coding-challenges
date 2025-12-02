@@ -42,15 +42,17 @@ func main() {
 			CatFile(os.Args)
 		}
 	case "hash-object":
-		if len(os.Args) < 4 {
+		if len(os.Args) < 3 {
 			fmt.Fprintf(os.Stderr, "usage: git hash-object -w <file-name>\n")
 			os.Exit(1)
 		}
 		switch os.Args[2] {
 		case "-w":
-			HashObject(os.Args, true)
+			fileName := os.Args[3]
+			HashObject(os.Args, fileName, true)
 		default:
-			HashObject(os.Args, false)
+			fileName := os.Args[2]
+			HashObject(os.Args, fileName, false)
 		}
 
 	default:
